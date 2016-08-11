@@ -1,3 +1,4 @@
+!$Id$
 ! Copyright (c) 2016 Anton Shterenlikht, The University of Bristol, UK
 !
 ! Module with error function and related functions.

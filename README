@@ -1,4 +1,4 @@
-$Id:$
+$Id$
 11-AUG-2016: initial commit
 errfun.f90 - the module with 2 functions:
 - fad - Faddeyeva, w(z)
