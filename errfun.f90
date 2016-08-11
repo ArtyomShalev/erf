@@ -25,7 +25,7 @@ contains
 elemental complex( kind=rkind ) function fad( z, err )
 
 ! This is the Faddeyeva or the plasma dispersion function,
-! w(z) = exp(-z^2) * erfc(-i*z). erfc(z) is the complex complementary
+! w(z) = exp(-z**2) * erfc(-i*z). erfc(z) is the complex complementary
 ! error function of z. z is a complex number.
 !
 ! Adapted from the Matlab code implementing TOMS
@@ -35,6 +35,9 @@ elemental complex( kind=rkind ) function fad( z, err )
 ! ref: TOMS 38,2 (Dec 2011) Article: 15
 ! for: Computing the Faddeyeva and Voigt Functions
 ! by: Mofreh R. Zaghloul and Ahmed N. Ali
+!
+! Most of the code is calculation of equations (13)-(19) of the
+! above paper.
 !
 ! Inputs:
 !    z - the argument of the function 
