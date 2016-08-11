@@ -1,3 +1,7 @@
+#$Id$
+# Copyright 2016 Anton Shterenlikht, The University of Bristol, UK
+# See LICENSE
+
 FC=		gfortran6
 FFLAGS=		-Wall -O2
 LDFLAGS+=	-Wl,-rpath="/usr/local/lib/gcc6"

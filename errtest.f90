@@ -1,3 +1,8 @@
+!$Id$
+! Copyright (c) 2016 Anton Shterenlikht, The University of Bristol, UK
+!
+! Simple tests of error functions in module errfun.
+
 program errtest
 use errfun
 implicit none
