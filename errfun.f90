@@ -58,7 +58,7 @@ elemental complex( kind=rkind ) function fad( z, err )
    cos_2yx, sin_2yx, v_old, l_old, sigma1, sigma2, sigma3, &
    sigma4, sigma5, sigma4_5, delta3, delta5, exp1, exp2, exp3, &
    del2_tmp, del3_tmp, del3_3_tmp, den1, exp_del1, &
-   exp3_den, exp3_3_den, del5, del3, two_exp_x_sqr_ysqr
+   exp3_den, exp3_3_den, del5, del3, two_exp_x_sqr_ysqr, aux13
  integer :: n, n3, n3_3
 
  x = real( z )
@@ -164,19 +164,19 @@ outer: if ( (sqrt_log_rmin - x) .gt. 0 ) then
 
    end do loop1
 
+   ! Second line of Eqn (13)
+   aux13 = y * two_a_pi *                                              &
+     ( - cos_2yx*exp_x_sqr*sigma1 + half*(sigma2 + sigma3) )
    mumu: if ( y .le. 5.0_rkind .and. two_yx .gt. rmin ) then
-     fad = v_old + y * two_a_pi * ( - cos_2yx * exp_x_sqr * sigma1     &
-           + half * ( sigma2 + sigma3 ) ) + cmplxj * xsign             &
+     fad = v_old + aux13 + cmplxj * xsign             &
            * ( sin_2yx * exp_x_sqr * ( l_old + two_a_pi * y * sigma1 ) &
            + two_a_pi * half_a * sigma4_5 )
    else if ( y .le. 5.0_rkind .and. two_yx .le. rmin ) then
-     fad = v_old + y * two_a_pi * ( - cos_2yx * exp_x_sqr * sigma1     &
-           + half * ( sigma2 + sigma3 ) ) + cmplxj * xsign             &
+     fad = v_old + aux13 + cmplxj * xsign             &
            * ( two * y * exp_x_sqr * ( x * l_old + x * two_a_pi * y    &
            * sigma1 ) + two_a_pi * half_a * sigma4_5 )
    else
-     fad = v_old + y * two_a_pi * ( - cos_2yx * exp_x_sqr * sigma1     &
-           + half * ( sigma2 + sigma3 ) ) + cmplxj * xsign             &
+     fad = v_old + aux13 + cmplxj * xsign             &
            * ( sin_2yx * exp_x_sqr * min( zero, abs( l_old             &
            + ( two_a_pi * y * sigma1) ) ) + two_a_pi *half_a           &
            * sigma4_5 )

@@ -18,15 +18,14 @@ real :: time2, time1
 
 integer :: i,j,funit
 
-
 ! Generate the coordinate arrays
 do concurrent( i=1:np )
   x(i) = xmin + delta * (i-1)
   y(i) = ymin + delta * (i-1)
 end do
 
-!write (*,*) "delta:", delta
-!write (*,*) "xmax, ymax:", x(np), y(np)
+write (*,*) "delta:", delta
+write (*,*) "xmax, ymax:", x(np), y(np)
 
 ! Generate the array of z
 do concurrent (i=1:np, j=1:np)
@@ -39,7 +38,7 @@ res = fad( z, err )
 call cpu_time( time2 )
 write (*,*) "CPU time, s:", time2-time1
 
-writeout: if (.false.) then
+writeout: if (.true.) then
   ! Write the data out
   re = real( res )
   im = aimag( res )
