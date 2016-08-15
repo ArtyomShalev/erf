@@ -27,7 +27,7 @@ complex( kind=rkind ), parameter ::                                    &
    cmplx0 = cmplx( zero, zero, kind=rkind )
 
 private
-public :: rkind, eps0, rmin, erf_zag, wpop, wzag, erf_pop
+public :: rkind, eps0, wpop, wzag, erf_pop, erf_zag
 
 contains
 
