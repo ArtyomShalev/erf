@@ -3,7 +3,7 @@
 # See LICENSE
 
 FC=		ifort
-FFLAGS=		-warn -O2
+FFLAGS=		-warn -O2 -stderrors
 
 MOD_SRC=	errfun.f90
 MOD_MOD=	$(MOD_SRC:.f90=.mod)
