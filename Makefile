@@ -3,7 +3,7 @@
 # See LICENSE
 
 FC=		gfortran6
-FFLAGS=		-Wall -O2
+FFLAGS=		-Wall -O2 -std=f2008ts
 LDFLAGS+=	-Wl,-rpath="/usr/local/lib/gcc6"
 
 MOD_SRC=	errfun.f90
