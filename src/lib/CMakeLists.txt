@@ -8,7 +8,7 @@ SET(CMAKE_Fortran_MODULE_DIRECTORY "${PROJECT_BINARY_DIR}/modules")
 
 set(LIB errfun)
 add_library(${LIB}
-    errfun.F90
+    errfun.f90
 )
 add_library(${NAMESPACE}${LIB} ALIAS ${LIB})
 
